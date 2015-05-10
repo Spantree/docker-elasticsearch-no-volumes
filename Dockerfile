@@ -20,8 +20,6 @@ ENV ELASTICSEARCH_VERSION 1.5.2
 
 RUN echo "deb http://packages.elasticsearch.org/elasticsearch/${ELASTICSEARCH_VERSION%.*}/debian stable main" > /etc/apt/sources.list.d/elasticsearch.list
 
-# piggybacked off of this command to install httpie, avoiding a second
-# apt-get update
 RUN apt-get update \
 	&& apt-get install -y elasticsearch=$ELASTICSEARCH_VERSION \
 	&& rm -rf /var/lib/apt/lists/*
